@@ -76,7 +76,7 @@ serviceAccount:
   annotations: {}
 
 ingress:
-  enabled: true
+  enabled: false
   defaultBackend:
     enabled: true
   # Used to create an Ingress record.
@@ -255,7 +255,7 @@ artifactory:
   ## admin allows to set the password for the default admin user.
   ## See: https://www.jfrog.com/confluence/display/JFROG/Users+and+Groups#UsersandGroups-RecreatingtheDefaultAdminUserrecreate
   admin:
-    ip: "0.0.0.0"
+    ip: "*"
     username: "admin"
     password:
     secret:
@@ -494,16 +494,16 @@ artifactory:
   ## to control the cpu and memory resources allocated by the Kubernetes cluster
   resources:
     requests:
-      memory: "4Gi"
-      cpu: "2"
+            #  memory: "4Gi"
+            #  cpu: "2"
     limits:
-      memory: "6Gi"
-      cpu: "4"
+            # memory: "6Gi"
+            #cpu: "4"
   ## The following Java options are passed to the java process running Artifactory.
   ## You should set them according to the resources set above
   javaOpts: 
-    xms: "4g"
-    xmx: "4g"
+  #  xms: "4g"
+  #  xmx: "4g"
     jmx:
       enabled: false
       port: 9010
@@ -602,11 +602,11 @@ postgresql:
     tolerations: []
   resources:
     requests:
-      memory: "4Gi"
-      cpu: "2"
+            #    memory: "4Gi"
+            #   cpu: "2"
     limits:
-      memory: "6Gi"
-      cpu: "4"
+            #  memory: "6Gi"
+            #  cpu: "4"
 
 ## If NOT using the PostgreSQL in this chart (postgresql.enabled=false),
 ## specify custom database details here or leave empty and Artifactory will use embedded derby
